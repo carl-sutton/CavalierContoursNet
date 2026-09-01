@@ -231,6 +231,20 @@ namespace CavalierContours.Core
         }
 
         /// <summary>
+        /// Distance between the points <paramref name="p0"/> and <paramref name="p1"/>.
+        /// </summary>
+        /// <typeparam name="T">Floating point type of the point components.</typeparam>
+        /// <param name="p0">First point.</param>
+        /// <param name="p1">Second point.</param>
+        /// <returns>The euclidean distance between the points.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T Dist<T>(Vector2<T> p0, Vector2<T> p1) where T : struct, IFloatingPointIeee754<T>
+        {
+            Vector2<T> d = p0 - p1;
+            return T.Sqrt(d.Dot(d));
+        }
+
+        /// <summary>
         /// Angle of the direction vector described by <paramref name="p0"/> to
         /// <paramref name="p1"/>.
         /// </summary>
