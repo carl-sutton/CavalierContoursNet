@@ -42,6 +42,21 @@ namespace CavalierContours.Core
         public static Vector2<T> Zero => new(T.Zero, T.Zero);
 
         /// <summary>
+        /// Gets the unit X vector (x = 1, y = 0).
+        /// </summary>
+        public static readonly Vector2<T> UnitX = new(T.One, T.Zero);
+
+        /// <summary>
+        /// Gets the unit Y vector (x = 0, y = 1).
+        /// </summary>
+        public static readonly Vector2<T> UnitY = new(T.Zero, T.One);
+
+        /// <summary>
+        /// Gets the one vector (x = 1, y = 1).
+        /// </summary>
+        public static readonly Vector2<T> One = new(T.One, T.One);
+
+        /// <summary>
         /// Uniformly scale the vector by <paramref name="scaleFactor"/>.
         /// </summary>
         /// <param name="scaleFactor">Factor applied to both components.</param>
@@ -237,6 +252,42 @@ namespace CavalierContours.Core
         /// <returns>The vector with both components negated.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2<T> operator -(Vector2<T> value) => new(-value.X, -value.Y);
+
+        /// <summary>
+        /// Component-wise product.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>The component-wise product.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2<T> operator *(Vector2<T> left, T right) => new(left.X * right, left.Y * right);
+
+        /// <summary>
+        /// Component-wise product.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>The component-wise product.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2<T> operator *(T left, Vector2<T> right) => new(left * right.X, left * right.Y);
+
+        /// <summary>
+        /// Component-wise quotient.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>The component-wise quotient.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2<T> operator /(Vector2<T> left, T right) => new(left.X / right, left.Y / right);
+
+        /// <summary>
+        /// Component-wise quotient.
+        /// </summary>
+        /// <param name="left">The left operand.</param>
+        /// <param name="right">The right operand.</param>
+        /// <returns>The component-wise quotient.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2<T> operator /(T left, Vector2<T> right) => new(left / right.X, left / right.Y);
 
         /// <summary>
         /// Exact component-wise equality comparison, see <see cref="Equals(Vector2{T})"/>.
