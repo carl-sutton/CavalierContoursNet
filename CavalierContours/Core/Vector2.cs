@@ -78,6 +78,29 @@ public readonly struct Vector2<T> : IEquatable<Vector2<T>>
     }
 
     /// <summary>
+    ///     Cross product.
+    /// </summary>
+    /// <param name="point1">The first vector.</param>
+    /// <param name="point2">The second vector.</param>
+    /// <returns><c>point1.X * point2.Y - point1.Y * point2.X</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T Cross(Vector2<T> point1, Vector2<T> point2)
+    {
+        return point1.X * point2.Y - point1.Y * point2.X;
+    }
+
+    /// <summary>
+    ///    Create a unit vector from an angle in radians.
+    /// </summary>
+    /// <param name="angle">Angle in radians</param>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Vector2<T> FromAngle(T angle)
+    {
+        return new(T.Cos(angle), T.Sin(angle));
+    }
+
+    /// <summary>
     ///     Compute the perpendicular dot product (<c>X * other.Y - Y * other.X</c>).
     /// </summary>
     /// <param name="other">The vector to take the perpendicular dot product with.</param>
