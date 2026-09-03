@@ -90,7 +90,7 @@ public readonly struct Vector2<T> : IEquatable<Vector2<T>>
     }
 
     /// <summary>
-    ///    Create a unit vector from an angle in radians.
+    ///     Create a unit vector from an angle in radians.
     /// </summary>
     /// <param name="angle">Angle in radians</param>
     /// <returns></returns>
